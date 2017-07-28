@@ -58,7 +58,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GJ9-mb-Cs1">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GJ9-mb-Cs1" customClass="GalleryImageView" customModule="ImageGallery" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="112" height="100"/>
                                                 </imageView>
                                             </subviews>
@@ -113,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="193" y="-593"/>
         </scene>
-        <!--Photo View Controller-->
+        <!--Photo-->
         <scene sceneID="iV4-Ez-wca">
             <objects>
                 <viewController id="FOR-zC-rCh" customClass="PhotoViewController" customModule="ImageGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,12 +125,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3it-dp-wax" customClass="MenuImageView" customModule="ImageGallery" customModuleProvider="target">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3it-dp-wax" customClass="GalleryImageView" customModule="ImageGallery" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="YOG-iH-7cW" appends="YES" id="odc-Id-dCb"/>
                                     <outletCollection property="gestureRecognizers" destination="Zad-b2-bx0" appends="YES" id="8cW-rz-FKA"/>
+                                    <outletCollection property="gestureRecognizers" destination="Whu-qt-oUX" appends="YES" id="1GK-Xj-7W5"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -142,23 +142,30 @@
                             <constraint firstAttribute="trailing" secondItem="3it-dp-wax" secondAttribute="trailing" id="l81-zY-Cee"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Photo" id="4cs-Op-QYw">
+                        <barButtonItem key="rightBarButtonItem" title="Metadata" id="zSz-6g-fbd">
+                            <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="metadataPressed:" destination="FOR-zC-rCh" id="8v7-Dm-VdR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="3it-dp-wax" id="taZ-gf-237"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEw-l1-bR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="YOG-iH-7cW">
-                    <connections>
-                        <action selector="imagePressed:" destination="FOR-zC-rCh" id="wcU-Su-nC3"/>
-                        <outlet property="delegate" destination="FOR-zC-rCh" id="dcj-3K-WPg"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Zad-b2-bx0">
                     <connections>
                         <action selector="imageLongPressed:" destination="FOR-zC-rCh" id="6F0-7c-a8X"/>
                         <outlet property="delegate" destination="FOR-zC-rCh" id="iJS-4p-vLy"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="Whu-qt-oUX">
+                    <connections>
+                        <action selector="imageTapped:" destination="FOR-zC-rCh" id="pmz-VR-6VS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1148" y="-593"/>
         </scene>

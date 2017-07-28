@@ -12,49 +12,17 @@ import SafariServices
 
 class PhotoViewController: UIViewController {
 
-    @IBOutlet weak var imageView: MenuImageView!
+    
+    @IBOutlet weak var imageView: GalleryImageView!
     
     public var entry:AtomFeedEntry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if let urlRequest = entry?.photoRequest() {
-            imageView.setImageWith(urlRequest, placeholderImage: nil, success: success(_:_:_:), failure: failure(_:_:_:))
+            imageView.configure(with: urlRequest)
         }
-        
-    }
-    @IBAction func imageLongPressed(_ gesture: UILongPressGestureRecognizer) {
-        
-        guard let gestureView = gesture.view, gesture.state == .began else {
-            return
-        }
-        
-        let menuController = UIMenuController.shared
-        
-        guard !menuController.isMenuVisible else {
-            return
-        }
-        
-        gestureView.becomeFirstResponder()
-        
-        menuController.menuItems = [
-            UIMenuItem(
-                title: "Save",
-                action: #selector(PhotoViewController.saveImage)
-            ),
-            UIMenuItem(
-                title: "Open in Browser",
-                action: #selector(PhotoViewController.openImage)
-            ),
-            UIMenuItem(
-                title: "Share",
-                action: #selector(PhotoViewController.shareImage)
-            )
-        ]
-        
-        menuController.setTargetRect(gestureView.frame, in: self.view)
-        menuController.setMenuVisible(true, animated: true)
         
     }
     
@@ -75,33 +43,51 @@ class PhotoViewController: UIViewController {
     public func saveImage() {
         UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
     }
+
+}
+
+
+extension PhotoViewController : UIGestureRecognizerDelegate {
     
-    @IBAction func imagePressed(_ sender: Any) {
+    @IBAction func imageTapped(_ sender: UIGestureRecognizer) {
+        imageView.resignFirstResponder()
+    }
+    
+    @IBAction func metadataPressed(_ sender: Any) {
         let alertController = UIAlertController(title: "Metadata", message: entry?.metadata(), preferredStyle: .alert)
-        
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private func failure(_ request:URLRequest,_ response:HTTPURLResponse?,_ error:Error) -> Void {
-        
-    }
-    
-    private func success(_ request:URLRequest,_ response:HTTPURLResponse?,_ image:UIImage) -> Void {
-        self.imageView.image = image
-    }
-}
-
-class MenuImageView : UIImageView {
-    override var canBecomeFirstResponder: Bool {
-        get {
-            return true
+    @IBAction func imageLongPressed(_ gesture: UILongPressGestureRecognizer) {
+        guard let gestureView = gesture.view, gesture.state == .began else {
+            return
         }
+        let menuController = UIMenuController.shared
+        guard !menuController.isMenuVisible else {
+            return
+        }
+        gestureView.becomeFirstResponder()
+        menuController.menuItems = [
+            UIMenuItem(
+                title: "Save",
+                action: #selector(PhotoViewController.saveImage)
+            ),
+            UIMenuItem(
+                title: "Open in Browser",
+                action: #selector(PhotoViewController.openImage)
+            ),
+            UIMenuItem(
+                title: "Share",
+                action: #selector(PhotoViewController.shareImage)
+            )
+        ]
+        
+        let targetRect = CGRect(origin: gesture.location(in: self.view), size: CGSize(width: 1, height: 1))
+        
+        menuController.setTargetRect(targetRect, in: self.view)
+        menuController.setMenuVisible(true, animated: true)
     }
-}
-
-extension PhotoViewController : UIGestureRecognizerDelegate {
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
