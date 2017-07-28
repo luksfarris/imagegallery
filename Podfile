@@ -8,6 +8,7 @@ target 'ImageGallery' do
 
   target 'ImageGalleryTests' do
     inherit! :search_paths
+    pod 'FBSnapshotTestCase'
   end
 
 end

@@ -14,16 +14,23 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
   - FeedKit (6.1.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - FBSnapshotTestCase
   - FeedKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   FeedKit: b8037e48c6317c8a3c480285c55b5f7bf2b74f5e
 
-PODFILE CHECKSUM: 91647bcbc6d4934bf9eac50cc6f915e8f5e6ccf8
+PODFILE CHECKSUM: e928228a5f2f42086209239d0ec55589123fd305
 
 COCOAPODS: 1.2.1

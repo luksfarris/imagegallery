@@ -35,7 +35,7 @@ class GalleryViewController: UIViewController {
         }
     }
     
-    fileprivate var entries:[AtomFeedEntry] = [] {
+    public var entries:[AtomFeedEntry] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -44,7 +44,13 @@ class GalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        downloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if entries.isEmpty {
+            downloadData()
+        }
     }
     
     private func setupView() {

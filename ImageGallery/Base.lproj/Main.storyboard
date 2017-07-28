@@ -116,7 +116,7 @@
         <!--Photo-->
         <scene sceneID="iV4-Ez-wca">
             <objects>
-                <viewController id="FOR-zC-rCh" customClass="PhotoViewController" customModule="ImageGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoViewController" id="FOR-zC-rCh" customClass="PhotoViewController" customModule="ImageGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q9v-x3-cDB"/>
                         <viewControllerLayoutGuide type="bottom" id="oN4-jy-uFk"/>
