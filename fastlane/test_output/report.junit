@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='ImageGalleryTests.xctest' tests='7' failures='0'>
+  <testsuite name='ImageGalleryTests.ParserTests' tests='5' failures='0'>
+    <testcase classname='ImageGalleryTests.ParserTests' name='testBaseRequest' time='0.003'/>
+    <testcase classname='ImageGalleryTests.ParserTests' name='testCommunication' time='0.006'/>
+    <testcase classname='ImageGalleryTests.ParserTests' name='testParsing' time='0.007'/>
+    <testcase classname='ImageGalleryTests.ParserTests' name='testSearch' time='0.002'/>
+    <testcase classname='ImageGalleryTests.ParserTests' name='testSearchRequest' time='0.001'/>
+  </testsuite>
+  <testsuite name='ImageGalleryTests.SnapshotTests' tests='2' failures='0'>
+    <testcase classname='ImageGalleryTests.SnapshotTests' name='testLoadedGallery' time='1.094'/>
+    <testcase classname='ImageGalleryTests.SnapshotTests' name='testPhotoPreview' time='1.051'/>
+  </testsuite>
+</testsuites>

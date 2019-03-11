@@ -1,36 +1,37 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
-    - AFNetworking/NSURLSession
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - FeedKit (6.1.1)
+  - iOSSnapshotTestCase (6.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.0.0)
+  - iOSSnapshotTestCase/Core (6.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.0.0):
+    - iOSSnapshotTestCase/Core
+  - RxAtomic (4.4.2)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - SwiftFormat/CLI (0.39.5)
 
 DEPENDENCIES:
-  - AFNetworking
-  - FBSnapshotTestCase
-  - FeedKit
+  - iOSSnapshotTestCase
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - SwiftFormat/CLI
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - iOSSnapshotTestCase
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - SwiftFormat
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  FeedKit: b8037e48c6317c8a3c480285c55b5f7bf2b74f5e
+  iOSSnapshotTestCase: f592adfdedffe6113a55528ce698ccc457a550f1
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  SwiftFormat: 082b6ee68dbf8ba1bee9e8cd508ddb094f535fbb
 
-PODFILE CHECKSUM: e928228a5f2f42086209239d0ec55589123fd305
+PODFILE CHECKSUM: 8fa244d101e96c48751a552c0790825536ace939
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.6.1

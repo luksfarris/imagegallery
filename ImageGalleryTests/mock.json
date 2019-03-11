@@ -1,0 +1,5 @@
+jsonFlickrApi(
+{"photos":{"page":1,"pages":123,"perpage":100,"total":"2","photo":[
+{"id":"123","owner":"123","secret":"123","server":"1","farm":1,"title":"Title","ispublic":1,"isfriend":0,"isfamily":0},
+{"id":"124","owner":"123","secret":"123","server":"1","farm":1,"title":"Other Title","ispublic":1,"isfriend":0,"isfamily":0}
+]},"stat":"ok"})
